@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20240921145857",
+  "clientRootFolder": "book",
+  "databaseType": "sql",
+  "entityTableName": "book_registration",
+  "fields": [
+    {
+      "fieldName": "bookId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "studentId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "requestDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "requestStatus",
+      "fieldType": "BookStatus",
+      "fieldValues": "BORROW,CANCEL,RETURN"
+    },
+    {
+      "fieldName": "returnDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "remarks",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "500"
+    }
+  ],
+  "microserviceName": "book",
+  "name": "BookRegistration",
+  "relationships": [
+    {
+      "otherEntityName": "book",
+      "otherEntityRelationshipName": "bookRegistration",
+      "relationshipName": "book",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

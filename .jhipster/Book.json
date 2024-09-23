@@ -1,0 +1,44 @@
+{
+  "applications": "*",
+  "changelogDate": "20240921145657",
+  "clientRootFolder": "book",
+  "databaseType": "sql",
+  "entityTableName": "book",
+  "fields": [
+    {
+      "fieldName": "author",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "500"
+    }
+  ],
+  "microserviceName": "book",
+  "name": "Book",
+  "relationships": [
+    {
+      "otherEntityName": "bookRegistration",
+      "otherEntityRelationshipName": "book",
+      "relationshipName": "bookRegistration",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "categoryType",
+      "otherEntityRelationshipName": "book",
+      "relationshipName": "categoryType",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

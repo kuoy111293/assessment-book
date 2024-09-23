@@ -149,3 +149,7 @@ Desktop.ini
 ######################
 /coverage/
 /.nyc_output/
+#
+## Custom
+/src/main/docker/**
+*.jdl

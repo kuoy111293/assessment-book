@@ -56,22 +56,30 @@ spring:
       port: 8500
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/book
+    url: jdbc:postgresql://localhost:54321/book
     username: book
-    password:
+    password: admin11
+    driver-class-name: org.postgresql.Driver
     hikari:
       poolName: Hikari
       auto-commit: false
+  jpa:
+    show-sql: false
+    database: postgresql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
+    url: jdbc:postgresql://localhost:54321/book
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:
     cache: false
 
 server:
-  port: 8081
+  port: 8082
 
 # ===================================================================
 # JHipster specific properties
@@ -93,7 +101,8 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
-        base64-secret: ZDI3ZjYwOWRmOTBkMWYxY2RiMmVhMTA1YWZlOGFkY2U1YTQ2ZWYwZDY0ODUzNTg4YWNmMzRlZmUwYTljOWNhYTRlMGM5MTYxOTcyMDVhOGNhZjE1NzE0OWNhYmQxM2MyYmRmOTE5YTcwNjQyOTJiMjk2ZTc1NTJkM2IxZGFkMTU=
+        #base64-secret: ZDI3ZjYwOWRmOTBkMWYxY2RiMmVhMTA1YWZlOGFkY2U1YTQ2ZWYwZDY0ODUzNTg4YWNmMzRlZmUwYTljOWNhYTRlMGM5MTYxOTcyMDVhOGNhZjE1NzE0OWNhYmQxM2MyYmRmOTE5YTcwNjQyOTJiMjk2ZTc1NTJkM2IxZGFkMTU=
+        base64-secret: MjAyM2RlZDc1ZGU1NDc0MDRkNDUyMzUyZjA5NmI3MDIzOTA1YzUzZWJkMmNhNTU0MDBlMzQwNTA5ZjNlMzRlOTU3YmE3MzkwYjM4NzA3MWQ0N2FkNzZjMjE3NzkwY2Q5ZDJhNjc3NGRkZGIzNmU4OTA2NjczOTA5ODRjYjBhOGI
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000
